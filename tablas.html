@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/Tablas.css">
-  <link rel="icon" href="/images/logo.png">
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
   <title>La tiendona</title>
   <script src="https://kit.fontawesome.com/637ab45327.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -12,17 +12,20 @@
 
 </head>
 <body>
-  <input type="number" id="precioInput" onkeypress="changePrice(event)" style="border-color: red;border-width: 0.3rem;width:75px">
+  <div id = "inputDiv">
+    <p>Ingrese el nuevo precio:</p>
+    <input type="number" id="precioInput" onkeypress="changePrice(event)" style="border:none;width:75px;">
+  </div>
   <div class = "headerContainer">
-      <div class="grid-x grid-margin-y" style="height:200px;">
+      <div class="grid-x grid-margin-y">
           <div class="cell large-12 medium-12 small-12 grid-x align-middle align-center">
             <img src="images/LogoTablas.png" alt="Logo La Tiendona" class = "logoPicture">
           </div>
           <div class="cell large-6 medium-6 small-6 grid-x align-middle align-right">
-              <button class = "inventarioButton" onclick="showTables()">INV</button>
+              <button class = "inventarioButton" onclick="showTables()">INVENTARIO</button>
           </div>
           <div class="cell large-6 medium-6 small-6 grid-x align-middle align-left">
-              <button class = "estadisticasButton" onclick="showStatistics()">EST</button>
+              <button class = "estadisticasButton" onclick="showStatistics()">ESTADISTICAS</button>
           </div>
       </div>
   </div>
@@ -119,9 +122,9 @@
           <td class = "Nombre-1" colspan="3"></td>
         </tr>
         <tr>
-          <td>D</td>
-          <td>V</td>
-          <td>P</td>
+          <td style="width:33%;">Disponibles</td>
+          <td style="width:33%;">Vendidos</td>
+          <td style="width:33%;">Precio</td>
         </tr>
         <tr>
           <td class = "Disp-1"></td>
@@ -204,7 +207,7 @@
     </div>
   </div> 
   <div id = "statistics">
-    <div class="grid-x grid-margin-y" style="height:200px;">
+    <div class="grid-x" style="height:200px;">
       <div class="cell large-12 medium-12 small-12 grid-x align-middle align-center">
         <p class = "ingresosCampo">INGRESOS TOTALES: $<span id = "ventasTotales">$23,000</span></p>
       </div>
@@ -269,25 +272,25 @@
   </div>
 
   <script>
-      function displayMenu() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-      
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
+    function displayMenu() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
           }
         }
       }
+    }
   </script>
 
-  <button id = "logOutButton" type="button" onclick="logOut()">CERRAR</button>
+  <button id = "logOutButton" type="button" onclick="logOut()">CERRAR SESIÓN</button>
   
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>

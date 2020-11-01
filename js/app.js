@@ -302,7 +302,7 @@ function modifyData(b,c)
 
     if(c == 3)
     {
-        document.getElementById("precioInput").style.display = "block";
+        document.getElementById("inputDiv").style.display = "block";
         precioActual = b;
     }
 }
@@ -322,7 +322,7 @@ function changePrice(event)
             })
             .then(function() {    
                 document.getElementById("precioInput").value = "";
-                document.getElementById("precioInput").style.display = "none";
+                document.getElementById("inputDiv").style.display = "none";
                 showData(categoriaActual);
             })
             .catch(function(error) {
