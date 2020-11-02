@@ -332,6 +332,11 @@ function changePrice(event)
     }
 }
 
+function closeInputDiv()
+{
+    document.getElementById("inputDiv").style.display = "none";
+}
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'pie',

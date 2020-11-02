@@ -19,7 +19,8 @@
 </head>
 <body>
   <div id = "inputDiv">
-    <p>Ingrese el nuevo precio:</p>
+    <span class="close" onclick="closeInputDiv()" style="font-size:1.2rem;">&times;</span>
+    <p style="margin-top: 1.3rem;">Ingrese el nuevo precio:</p>
     <input type="number" id="precioInput" onkeypress="changePrice(event)" style="border:none;width:75px;">
   </div>
   <div class = "headerContainer">

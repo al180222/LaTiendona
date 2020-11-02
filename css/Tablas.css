@@ -235,6 +235,19 @@ th, td
   background-color:  #007b8b94;
 }
 
+.close
+{
+  right: 5%;
+  top: 0%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.close:hover
+{
+  color: red;
+}
+
 @media screen and (max-width: 1100px) {
   .inventarioButton, .estadisticasButton
   {
