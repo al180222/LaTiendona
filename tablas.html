@@ -13,10 +13,10 @@
     function codeAddress() {
       calcularVentas();
       showData("AceitesYGrasas");
+      categoryName("Aceites y grasas");
     }
     window.onload = codeAddress;
   </script>
-
 </head>
 <body>
   <div id = "inputDiv">
@@ -42,20 +42,20 @@
       </div>
   </div>
   <div class="dropdown">
-      <button onclick="displayMenu()" class="dropbtn">CATEGORÍA</button>
+      <button onclick="displayMenu()" class="dropbtn">CATEGORÍA: <span id="categoriaText" onclick="displayMenu()"></span></button>
       <div id="myDropdown" class="dropdown-content">
-        <a onclick="showData('AceitesYGrasas')">Aceites y grasas</a>
-        <a onclick="showData('AlimentosDeOrigenAnimal')">Alimentos de origen animal</a>
-        <a onclick="showData('Bebidas saludables')">Bebidas saludables</a>
-        <a onclick="showData('Botanas')">Botanas</a>
-        <a onclick="showData('CerealesYTuberculos')">Cereales y tubérculos</a>
-        <a onclick="showData('Cervezas y Cigarros')">Cervezas y cigarros</a>
-        <a onclick="showData('Dulces')">Dulces</a>
-        <a onclick="showData('Enlatados')">Enlatados</a>
-        <a onclick="showData('Frutas y verduras')">Frutas y Verduras</a>
-        <a onclick="showData('Lacteos')">Lácteos</a>
-        <a onclick="showData('Leguminosas')">Leguminosas</a>
-        <a onclick="showData('Refrecos')">Refrescos</a>
+        <a onclick="showData('AceitesYGrasas'), categoryName('Aceites y grasas')">Aceites y grasas</a>
+        <a onclick="showData('AlimentosDeOrigenAnimal'), categoryName('Alimentos de origen animal')">Alimentos de origen animal</a>
+        <a onclick="showData('Bebidas saludables'), categoryName('Bebidas saludables')">Bebidas saludables</a>
+        <a onclick="showData('Botanas'), categoryName('Botanas')">Botanas</a>
+        <a onclick="showData('CerealesYTuberculos'), categoryName('Cereales y tubérculos')">Cereales y tubérculos</a>
+        <a onclick="showData('Cervezas y Cigarros'), categoryName('Cervezas y cigarros')">Cervezas y cigarros</a>
+        <a onclick="showData('Dulces'), categoryName('Dulces')">Dulces</a>
+        <a onclick="showData('Enlatados'), categoryName('Enlatados')">Enlatados</a>
+        <a onclick="showData('Frutas y verduras'), categoryName('Frutas y verduras')">Frutas y Verduras</a>
+        <a onclick="showData('Lacteos'), categoryName('Lácteos')">Lácteos</a>
+        <a onclick="showData('Leguminosas'), categoryName('Leguminosas')">Leguminosas</a>
+        <a onclick="showData('Refrecos'), categoryName('Refrescos')">Refrescos</a>
       </div>
   </div>
   <div id = "tables">
@@ -158,6 +158,12 @@
           <td class = "Precio-1"></td>
         </tr>
         <tr>
+          <td colspan="5">Proveedor</td>
+        </tr>
+        <tr>
+          <td class = "Prov-1" colspan="5"></td>
+        </tr>
+        <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-2" onclick="modifyData(2,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-2" onclick="modifyData(2,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
           <td style="background-color: rgb(255, 124, 255);"><button class = "iconButton Change-2" onclick="modifyData(2,3)" title = "Cambiar precio"><i class="fas fa-pen"></i></button></td>
@@ -177,6 +183,13 @@
           <td class = "Vend-2"  colspan="3"></td>
           <td class = "Precio-2"></td>
         </tr>
+        <tr>
+          <td colspan="5">Proveedor</td>
+        </tr>
+        <tr>
+          <td class = "Prov-2" colspan="5"></td>
+        </tr>
+        <tr>
         <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-3" onclick="modifyData(3,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-3" onclick="modifyData(3,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
@@ -198,6 +211,13 @@
           <td class = "Precio-3"></td>
         </tr>
         <tr>
+          <td colspan="5">Proveedor</td>
+        </tr>
+        <tr>
+          <td class = "Prov-3" colspan="5"></td>
+        </tr>
+        <tr>
+        <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-4" onclick="modifyData(4,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-4" onclick="modifyData(4,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
           <td style="background-color: rgb(255, 124, 255);"><button class = "iconButton Change-4" onclick="modifyData(4,3)" title = "Cambiar precio"><i class="fas fa-pen"></i></button></td>
@@ -218,6 +238,13 @@
           <td class = "Precio-4"></td>
         </tr>
         <tr>
+          <td colspan="5">Proveedor</td>
+        </tr>
+        <tr>
+          <td class = "Prov-4" colspan="5"></td>
+        </tr>
+        <tr>
+        <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-5" onclick="modifyData(5,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-5" onclick="modifyData(5,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
           <td style="background-color: rgb(255, 124, 255);"><button class = "iconButton Change-5" onclick="modifyData(5,3)" title = "Cambiar precio"><i class="fas fa-pen"></i></button></td>
@@ -237,6 +264,13 @@
           <td class = "Vend-5" colspan="3"></td>
           <td class = "Precio-5"></td>
         </tr>
+        <tr>
+          <td colspan="5">Proveedor</td>
+        </tr>
+        <tr>
+          <td class = "Prov-5" colspan="5"></td>
+        </tr>
+        <tr>
       </table>
     </div>
   </div> 
