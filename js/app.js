@@ -1,5 +1,5 @@
 // Initialize Cloud Firestore through Firebase
-firebase.initializeApp({
+    firebase.initializeApp({
     apiKey: "AIzaSyDddSrUFOmZi8aihkW49tAG8NR8tqvLFJM",
     authDomain: "tiendaabarrotes-39dde.firebaseapp.com",
     projectId: "tiendaabarrotes-39dde"
@@ -94,6 +94,10 @@ let idProductos = [['3PMXoENXuID1BBHJoThV', 'R19eSOs2hXqco3O00GjV', 'ZcMK4xFAXg0
                     ['6kMepBRpT3UoUoda68XJ', 'Mc8c6gmWE0cTjGABoPct', 'RvTeFgaeTzuVs1QgcOBv', 'fg40OvwhYZuMLJdxRFoJ', 'lUBDgtjwvWmmk9QPkoqA'],
                     ['2JtLtKXE6i5ly7fIQnff', '7ZTgKjih2g6Wd180e3oD', 'P1I2QUYjIbByMK4W2Iw9', 'PscnucDmd8OhZHAhXwvY', 'u1PPB9Lwg8avJ5DEaSxZ']];              
 
+function categoryName(a)
+{
+    document.getElementById("categoriaText").textContent = a;
+}
 
 function showData(a)
 {
@@ -109,35 +113,35 @@ function showData(a)
                         Disp_1[0].innerHTML = doc.data().Disponibles; Disp_1[1].innerHTML = doc.data().Disponibles; 
                         Vend_1[0].innerHTML = doc.data().Vendidos; Vend_1[1].innerHTML = doc.data().Vendidos;
                         Precio_1[0].innerHTML = doc.data().Precio; Precio_1[1].innerHTML = doc.data().Precio;
-                        Prov_1[0].innerHTML = doc.data().Proveedor;
+                        Prov_1[0].innerHTML = doc.data().Proveedor; Prov_1[1].innerHTML = doc.data().Proveedor;
                         break;
                     case 2:
                         Nombre_2[0].innerHTML = doc.data().Nombre; Nombre_2[1].innerHTML = doc.data().Nombre;
                         Disp_2[0].innerHTML = doc.data().Disponibles; Disp_2[1].innerHTML = doc.data().Disponibles; 
                         Vend_2[0].innerHTML = doc.data().Vendidos; Vend_2[1].innerHTML = doc.data().Vendidos;
                         Precio_2[0].innerHTML = doc.data().Precio; Precio_2[1].innerHTML = doc.data().Precio;
-                        Prov_2[0].innerHTML = doc.data().Proveedor;
+                        Prov_2[0].innerHTML = doc.data().Proveedor; Prov_2[1].innerHTML = doc.data().Proveedor;
                         break;
                     case 3:
                         Nombre_3[0].innerHTML = doc.data().Nombre; Nombre_3[1].innerHTML = doc.data().Nombre;
                         Disp_3[0].innerHTML = doc.data().Disponibles; Disp_3[1].innerHTML = doc.data().Disponibles; 
                         Vend_3[0].innerHTML = doc.data().Vendidos; Vend_3[1].innerHTML = doc.data().Vendidos;
                         Precio_3[0].innerHTML = doc.data().Precio; Precio_3[1].innerHTML = doc.data().Precio;
-                        Prov_3[0].innerHTML = doc.data().Proveedor;
+                        Prov_3[0].innerHTML = doc.data().Proveedor; Prov_3[1].innerHTML = doc.data().Proveedor;
                         break;
                     case 4:
                         Nombre_4[0].innerHTML = doc.data().Nombre; Nombre_4[1].innerHTML = doc.data().Nombre;
                         Disp_4[0].innerHTML = doc.data().Disponibles; Disp_4[1].innerHTML = doc.data().Disponibles; 
                         Vend_4[0].innerHTML = doc.data().Vendidos; Vend_4[1].innerHTML = doc.data().Vendidos;
                         Precio_4[0].innerHTML = doc.data().Precio; Precio_4[1].innerHTML = doc.data().Precio;
-                        Prov_4[0].innerHTML = doc.data().Proveedor;
+                        Prov_4[0].innerHTML = doc.data().Proveedor; Prov_4[1].innerHTML = doc.data().Proveedor;
                         break;
                     case 5:
                         Nombre_5[0].innerHTML = doc.data().Nombre; Nombre_5[1].innerHTML = doc.data().Nombre;
                         Disp_5[0].innerHTML = doc.data().Disponibles; Disp_5[1].innerHTML = doc.data().Disponibles; 
                         Vend_5[0].innerHTML = doc.data().Vendidos; Vend_5[1].innerHTML = doc.data().Vendidos;
                         Precio_5[0].innerHTML = doc.data().Precio; Precio_5[1].innerHTML = doc.data().Precio;
-                        Prov_5[0].innerHTML = doc.data().Proveedor;
+                        Prov_5[0].innerHTML = doc.data().Proveedor; Prov_5[1].innerHTML = doc.data().Proveedor;
                         break;
                 }
                 i = i + 1;
@@ -249,7 +253,6 @@ function modifyData(b,c)
             Disponibles: firebase.firestore.FieldValue.increment(1),
         })
         .then(function() {
-            //showData(categoriaActual);
             let classname = "Disp-" + b.toString();
             var docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);
 

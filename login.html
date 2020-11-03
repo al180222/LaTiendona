@@ -14,15 +14,15 @@
     <div class="loginContainer">
         <div class="grid-x" style="height:500px;">
             <div class="cell large-6 medium-12 small-12 grid-x align-middle align-center">
-                <img src="images/LogoTablas.png" alt="LogoLaTiendona" class="loginPicture">
+                <img src="images/LogoTablas.png" alt="Logo LaTiendona" class="loginPicture">
             </div>
             <div class="cell large-6 medium-12 small-12 grid-x align-middle align-center">
                 <form class="loginForm">
                     <p class="loginTitle">LOGIN</p>
                     <i class="fas fa-user"></i></input>
-                    <input id="email_logIn" type="email" placeholder="Usuario">
+                    <input id="email_logIn" type="email" placeholder="Usuario" onkeypress="tryLogin(event)">
                     <i class="fas fa-lock"></i>
-                    <input id="password_logIn" type="password" placeholder="Contraseña"></input>
+                    <input id="password_logIn" type="password" placeholder="Contraseña" onkeypress="tryLogin(event)"></input>
                     <button class="loginButton" type="button" onclick="logIn()">INGRESAR</button>
                     <p id ="errorMessage">Los datos son incorrectos</p>
                 </form>
@@ -56,5 +56,14 @@
         firebase.analytics();
     </script>
     <script src="js/index.js"></script>
+    <script type="text/javascript">
+        function tryLogin(event)
+            {
+                if(event.keyCode == 13)
+                {
+                    logIn();
+                }
+            }
+    </script>
 </body>
 </html>
