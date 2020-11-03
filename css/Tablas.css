@@ -175,13 +175,9 @@ th, td
 
 #statistics
 {
-  width: 600px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 46%;
+  margin-left: 26%;
   display: none;
-  margin-top: -1rem;
 }
 
 .ingresos
@@ -205,6 +201,23 @@ th, td
   position: absolute;
   left: 50%;
   top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+#errorDiv
+{
+  width: 325px;
+  height: 75px;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 90%;
   transform: translate(-50%, -50%);
   z-index: 5;
   text-align: center;
@@ -243,6 +256,14 @@ th, td
   cursor: pointer;
 }
 
+.closeErrorDiv
+{  
+  right: 5%;
+  top: 0%;
+  position: absolute;
+  cursor: pointer;
+}
+
 .close:hover
 {
   color: red;
@@ -252,6 +273,12 @@ th, td
   .inventarioButton, .estadisticasButton
   {
     font-size: 1rem;
+  }
+
+  #statistics
+  {
+    width: 50%;
+    margin-left: 25%;
   }
 
   .tableContainer
@@ -282,6 +309,17 @@ th, td
   .dropbtn {
     margin-top: 1rem;
   }
+
+  #myChart, #chartInstructions
+  {
+    display: none !important;
+  }
+
+  #tablaVentas
+  {
+    display: block;
+    height: 400px;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -290,11 +328,6 @@ th, td
     width: 310px;
     height: 30%;
     margin-top: 2.5rem;
-  }
-
-  #myChart
-  {
-    display: none !important;
   }
 
   .inventarioButton, .estadisticasButton
@@ -314,7 +347,7 @@ th, td
 
   #tablaVentas
   {
-    display: block;
+    height: 200px;
   }
 }
 
