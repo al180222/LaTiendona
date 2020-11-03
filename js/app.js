@@ -1,5 +1,5 @@
 // Initialize Cloud Firestore through Firebase
-    firebase.initializeApp({
+firebase.initializeApp({
     apiKey: "AIzaSyDddSrUFOmZi8aihkW49tAG8NR8tqvLFJM",
     authDomain: "tiendaabarrotes-39dde.firebaseapp.com",
     projectId: "tiendaabarrotes-39dde"
@@ -244,11 +244,26 @@ function modifyData(b,c)
 
     if(c == 1)
     {
+        closeErrorDiv();
         db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
             Disponibles: firebase.firestore.FieldValue.increment(1),
         })
         .then(function() {
-            showData(categoriaActual);
+            //showData(categoriaActual);
+            let classname = "Disp-" + b.toString();
+            var docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);
+
+            docRef.get().then(function(doc) {
+                if (doc.exists) {
+                    document.getElementsByClassName(classname)[0].innerHTML = doc.data().Disponibles;
+                    document.getElementsByClassName(classname)[1].innerHTML = doc.data().Disponibles;
+                } else {
+                    console.log("No such document!");
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+            calcularVentas();
         })
         .catch(function(error) {
             console.error("Error writing document: ", error);
@@ -257,10 +272,12 @@ function modifyData(b,c)
 
     if(c == 2)
     {
+        closeErrorDiv();
         let classname = "Disp-" + b.toString();
         if(document.getElementsByClassName(classname)[0].textContent == "0" || document.getElementsByClassName(classname)[1].textContent == "0")
         {
-            console.log("No hay más productos de este tipo para vender");
+            document.getElementById("errorDivMessage").innerHTML = "No hay más productos de este tipo para vender";
+            openErrorDiv();
         }
         else 
         {
@@ -291,7 +308,23 @@ function modifyData(b,c)
                 Total: firebase.firestore.FieldValue.increment(parseInt(document.getElementsByClassName(idcell)[0].textContent)),
             })
             .then(function() {
-                showData(categoriaActual);
+                let classname1 = "Disp-" + b.toString();
+                let classname2 = "Vend-" + b.toString();
+                var docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);
+    
+                docRef.get().then(function(doc) {
+                    if (doc.exists) {
+                        document.getElementsByClassName(classname1)[0].innerHTML = doc.data().Disponibles;
+                        document.getElementsByClassName(classname2)[0].innerHTML = doc.data().Vendidos;
+                        document.getElementsByClassName(classname1)[1].innerHTML = doc.data().Disponibles;
+                        document.getElementsByClassName(classname2)[1].innerHTML = doc.data().Vendidos;
+                    } else {
+                        console.log("No such document!");
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+                calcularVentas();
             })
             .catch(function(error) {
                 console.error("Error writing document: ", error);
@@ -304,7 +337,107 @@ function modifyData(b,c)
     {
         document.getElementById("inputDiv").style.display = "block";
         precioActual = b;
+
+        closeErrorDiv()
     }
+
+    if(c == 4)
+    {
+        closeErrorDiv();
+        let classname = "Disp-" + b.toString();
+        if(document.getElementsByClassName(classname)[0].textContent == "0" || document.getElementsByClassName(classname)[1].textContent == "0")
+        {
+            document.getElementById("errorDivMessage").innerHTML = "No hay productos de este tipo para retirar";
+            openErrorDiv();
+        }
+        else 
+        {
+            db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
+                Disponibles: firebase.firestore.FieldValue.increment(-1),
+            })
+            .then(function() {
+                var docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);
+    
+                docRef.get().then(function(doc) {
+                    if (doc.exists) {
+                        document.getElementsByClassName(classname)[0].innerHTML = doc.data().Disponibles;
+                        document.getElementsByClassName(classname)[1].innerHTML = doc.data().Disponibles;
+                    } else {
+                        console.log("No such document!");
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+                calcularVentas();
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            });
+        }
+    }
+
+    if(c == 5)
+    {
+        closeErrorDiv();
+        let classname = "Vend-" + b.toString();
+        if(document.getElementsByClassName(classname)[0].textContent == "0" || document.getElementsByClassName(classname)[1].textContent == "0")
+        {
+            document.getElementById("errorDivMessage").innerHTML = "No se pueden devolver ventas de este producto";
+            openErrorDiv();
+        }
+        else 
+        {
+            let idcell = "Precio-" + b.toString();
+
+            db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
+                Disponibles: firebase.firestore.FieldValue.increment(1),
+                Vendidos: firebase.firestore.FieldValue.increment(-1),
+            })
+            .then(function() {
+                console.log("Venta devuelta");
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            });
+
+            db.collection("Ventas").doc(categoriaActual).update({
+                Total: firebase.firestore.FieldValue.increment(-1 * parseInt(document.getElementsByClassName(idcell)[0].textContent)),
+            })
+            .then(function() {
+                console.log("Venta devuelta registrada");
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            });
+
+            db.collection("Ventas").doc("TotalVentas").update({
+                Total: firebase.firestore.FieldValue.increment(-1 * parseInt(document.getElementsByClassName(idcell)[0].textContent)),
+            })
+            .then(function() {
+                let classname1 = "Disp-" + b.toString();
+                let classname2 = "Vend-" + b.toString();
+                var docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);
+    
+                docRef.get().then(function(doc) {
+                    if (doc.exists) {
+                        document.getElementsByClassName(classname1)[0].innerHTML = doc.data().Disponibles;
+                        document.getElementsByClassName(classname1)[1].innerHTML = doc.data().Disponibles;
+                        document.getElementsByClassName(classname2)[0].innerHTML = doc.data().Vendidos;
+                        document.getElementsByClassName(classname2)[1].innerHTML = doc.data().Vendidos;
+                    } else {
+                        console.log("No such document!");
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+                calcularVentas();
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            });           
+        }
+    }
+    calcularVentas();
 }
 
 function changePrice(event)
@@ -313,7 +446,8 @@ function changePrice(event)
     {
         if(document.getElementById("precioInput").value <= 0)
         {
-            return;
+            document.getElementById("errorDivMessage").innerHTML = "El precio no puede ser menor o igual a 0";
+            openErrorDiv();
         }
         else
         {
@@ -335,6 +469,17 @@ function changePrice(event)
 function closeInputDiv()
 {
     document.getElementById("inputDiv").style.display = "none";
+    document.getElementById("precioInput").value = "";
+}
+
+function openErrorDiv()
+{
+    document.getElementById("errorDiv").style.display = "block";
+}
+
+function closeErrorDiv()
+{
+    document.getElementById("errorDiv").style.display = "none";
 }
 
 var ctx = document.getElementById('myChart').getContext('2d');
