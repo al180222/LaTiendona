@@ -37,12 +37,12 @@
               <button class = "inventarioButton" onclick="showTables()">INVENTARIO</button>
           </div>
           <div class="cell large-6 medium-6 small-6 grid-x align-middle align-left">
-              <button class = "estadisticasButton" onclick="showStatistics(), closeErrorDiv(), closeInputDiv()">ESTADISTICAS</button>
+              <button class = "estadisticasButton" onclick="showStatistics(), closeErrorDiv(), closeInputDiv()">ESTADÍSTICAS</button>
           </div>
       </div>
   </div>
   <div class="dropdown">
-      <button onclick="displayMenu()" class="dropbtn">Categoría: <span id="categoriaText" onclick="displayMenu()"></span></button>
+      <button onclick="displayMenu()" class="dropbtn">Categoría:</button>
       <div id="myDropdown" class="dropdown-content">
         <a onclick="showData('AceitesYGrasas'), categoryName('Aceites y grasas')">Aceites y grasas</a>
         <a onclick="showData('AlimentosDeOrigenAnimal'), categoryName('Alimentos de origen animal')">Alimentos de origen animal</a>
@@ -52,7 +52,7 @@
         <a onclick="showData('Cervezas y Cigarros'), categoryName('Cervezas y cigarros')">Cervezas y cigarros</a>
         <a onclick="showData('Dulces'), categoryName('Dulces')">Dulces</a>
         <a onclick="showData('Enlatados'), categoryName('Enlatados')">Enlatados</a>
-        <a onclick="showData('Frutas y verduras'), categoryName('Frutas y verduras')">Frutas y Verduras</a>
+        <a onclick="showData('Frutas y verduras'), categoryName('Frutas y verduras')">Frutas y verduras</a>
         <a onclick="showData('Lacteos'), categoryName('Lácteos')">Lácteos</a>
         <a onclick="showData('Leguminosas'), categoryName('Leguminosas')">Leguminosas</a>
         <a onclick="showData('Refrecos'), categoryName('Refrescos')">Refrescos</a>
@@ -71,6 +71,7 @@
             <th>Disponibles</th>
             <th>Vendidos</th>
             <th>Precio</th>
+            <th>Ingresos</th>
             <th>Proveedor</th>
           </tr>
           <tr>
@@ -83,6 +84,7 @@
             <td class = "Disp-1"></td>
             <td class = "Vend-1"></td>
             <td class = "Precio-1"></td>
+            <td class = "Ingresos-1"></td>
             <td class = "Prov-1"></td>
           </tr>
           <tr>
@@ -95,6 +97,7 @@
             <td class = "Disp-2"></td>
             <td class = "Vend-2"></td>
             <td class = "Precio-2"></td>
+            <td class = "Ingresos-2"></td>
             <td class = "Prov-2"></td>
           </tr>
           <tr>
@@ -107,6 +110,7 @@
             <td class = "Disp-3"></td>
             <td class = "Vend-3"></td>
             <td class = "Precio-3"></td>
+            <td class = "Ingresos-3"></td>
             <td class = "Prov-3"></td>
           </tr>
           <tr>
@@ -119,6 +123,7 @@
             <td class = "Disp-4"></td>
             <td class = "Vend-4"></td>
             <td class = "Precio-4"></td>
+            <td class = "Ingresos-4"></td>
             <td class = "Prov-4"></td>
           </tr>
           <tr>
@@ -131,6 +136,7 @@
             <td class = "Disp-5"></td>
             <td class = "Vend-5"></td>
             <td class = "Precio-5"></td>
+            <td class = "Ingresos-5"></td>
             <td class = "Prov-5"></td>
           </tr>
         </table>
@@ -164,6 +170,12 @@
           <td class = "Prov-1" colspan="5"></td>
         </tr>
         <tr>
+          <td colspan="5">Ingresos</td>
+        </tr>
+        <tr>
+          <td class = "Ingresos-1" colspan="5"></td>
+        </tr>
+        <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-2" onclick="modifyData(2,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-2" onclick="modifyData(2,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
           <td style="background-color: rgb(255, 124, 255);"><button class = "iconButton Change-2" onclick="modifyData(2,3)" title = "Cambiar precio"><i class="fas fa-pen"></i></button></td>
@@ -190,6 +202,11 @@
           <td class = "Prov-2" colspan="5"></td>
         </tr>
         <tr>
+          <td colspan="5">Ingresos</td>
+        </tr>
+        <tr>
+          <td class = "Ingresos-2" colspan="5"></td>
+        </tr>
         <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-3" onclick="modifyData(3,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-3" onclick="modifyData(3,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
@@ -217,6 +234,11 @@
           <td class = "Prov-3" colspan="5"></td>
         </tr>
         <tr>
+          <td colspan="5">Ingresos</td>
+        </tr>
+        <tr>
+          <td class = "Ingresos-3" colspan="5"></td>
+        </tr>
         <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-4" onclick="modifyData(4,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-4" onclick="modifyData(4,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
@@ -244,6 +266,11 @@
           <td class = "Prov-4" colspan="5"></td>
         </tr>
         <tr>
+          <td colspan="5">Ingresos</td>
+        </tr>
+        <tr>
+          <td class = "Ingresos-4" colspan="5"></td>
+        </tr>
         <tr>
           <td style="background-color: rgb(255, 255, 161);"><button class = "iconButton Add-5" onclick="modifyData(5,1)" title = "Agregar producto"><i class="fas fa-plus-circle"></i></button></td>
           <td style="background-color: rgb(255, 212, 132);"><button class = "iconButton Sell-5" onclick="modifyData(5,2)" title = "Vender producto"><i class="fas fa-dollar-sign"></i></button></td>
@@ -271,6 +298,11 @@
           <td class = "Prov-5" colspan="5"></td>
         </tr>
         <tr>
+          <td colspan="5">Ingresos</td>
+        </tr>
+        <tr>
+          <td class = "Ingresos-5" colspan="5"></td>
+        </tr>
       </table>
     </div>
   </div> 
@@ -280,7 +312,7 @@
         <p class = "ingresosCampo" style="font-weight: 700;font-size: 1.2rem;text-align: center;">INGRESOS TOTALES: $<span id = "ventasTotales">$23,000</span></p>
       </div>
       <div class="cell large-12 medium-12 small-12 grid-x align-middle align-center">
-        <p id="chartInstructions" style="text-align: center;font-weight: 700;">En caso de querer ocultar categorías, haga click en su nombre justo abajo</p>
+        <p id="chartInstructions" style="text-align: center;font-weight: 700;">En caso de querer ocultar/mostrar categorías, haga click en su nombre justo abajo</p>
         <canvas id="myChart"></canvas>
         <table id = "tablaVentas">
           <tr>
