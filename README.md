@@ -33,7 +33,6 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 * [HTML](https://html.com/) - Lenguaje de Marcas de Hipertexto
 * [CSS](https://developer.mozilla.org/es/docs/Web/CSS) - Hojas de estilo en cascada
 * [JAVASCRIPT](https://developer.mozilla.org/es/docs/Web/JavaScript) - Lenguaje de programación interpretado
-* [Boostrap](https://getbootstrap.com/) - Framework usado para front-end
 * [Firebase](https://firebase.google.com/docs?hl=es-419) - Usado para back-end en la bases de datos no relacional
 * [Google Cloud](https://cloud.google.com/docs) - Usado para generar una instancia de una máquina virtual 
 * [Linux Ubuntu](https://ubuntu.com/) - Usado para costruir el servidor web en Apache
