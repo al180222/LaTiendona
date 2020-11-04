@@ -49,6 +49,7 @@ let Vend_1 = document.getElementsByClassName("Vend-1");
 let Precio_1 = document.getElementsByClassName("Precio-1");
 let Prov_1 = document.getElementsByClassName("Prov-1");
 let Ingresos_1 = document.getElementsByClassName("Ingresos-1");
+let Tiempo_1 = document.getElementsByClassName("Tiempo-1");
 
 let Nombre_2 = document.getElementsByClassName("Nombre-2");
 let Disp_2 = document.getElementsByClassName("Disp-2");
@@ -56,6 +57,7 @@ let Vend_2 = document.getElementsByClassName("Vend-2");
 let Precio_2 = document.getElementsByClassName("Precio-2");
 let Prov_2 = document.getElementsByClassName("Prov-2");
 let Ingresos_2 = document.getElementsByClassName("Ingresos-2");
+let Tiempo_2 = document.getElementsByClassName("Tiempo-2");
 
 let Nombre_3 = document.getElementsByClassName("Nombre-3");
 let Disp_3 = document.getElementsByClassName("Disp-3");
@@ -63,6 +65,7 @@ let Vend_3 = document.getElementsByClassName("Vend-3");
 let Precio_3 = document.getElementsByClassName("Precio-3");
 let Prov_3 = document.getElementsByClassName("Prov-3");
 let Ingresos_3 = document.getElementsByClassName("Ingresos-3");
+let Tiempo_3 = document.getElementsByClassName("Tiempo-3");
 
 let Nombre_4 = document.getElementsByClassName("Nombre-4");
 let Disp_4 = document.getElementsByClassName("Disp-4");
@@ -70,6 +73,7 @@ let Vend_4 = document.getElementsByClassName("Vend-4");
 let Precio_4 = document.getElementsByClassName("Precio-4");
 let Prov_4 = document.getElementsByClassName("Prov-4");
 let Ingresos_4 = document.getElementsByClassName("Ingresos-4");
+let Tiempo_4 = document.getElementsByClassName("Tiempo-4");
 
 let Nombre_5 = document.getElementsByClassName("Nombre-5");
 let Disp_5 = document.getElementsByClassName("Disp-5");
@@ -77,6 +81,7 @@ let Vend_5 = document.getElementsByClassName("Vend-5");
 let Precio_5 = document.getElementsByClassName("Precio-5");
 let Prov_5 = document.getElementsByClassName("Prov-5");
 let Ingresos_5 = document.getElementsByClassName("Ingresos-5");
+let Tiempo_5 = document.getElementsByClassName("Tiempo-5");
 
 let i = 1;
 let j = 1;
@@ -106,7 +111,6 @@ function categoryName(a)
 
 function showData(a)
 {
-    calcularVentas();
     categoriaActual = a
     db.collection(a).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -119,7 +123,8 @@ function showData(a)
                         Vend_1[0].innerHTML = doc.data().Vendidos; Vend_1[1].innerHTML = doc.data().Vendidos;
                         Precio_1[0].innerHTML = doc.data().Precio; Precio_1[1].innerHTML = doc.data().Precio;
                         Prov_1[0].innerHTML = doc.data().Proveedor; Prov_1[1].innerHTML = doc.data().Proveedor;
-                        //Ingresos_1[0].innerHTML = doc.data().Ingresos; Ingresos_1[1].innerHTML = doc.data().Ingresos;
+                        Ingresos_1[0].innerHTML = doc.data().Ingresos; Ingresos_1[1].innerHTML = doc.data().Ingresos;
+                        Tiempo_1[0].innerHTML = doc.data().Tiempo; Tiempo_1[1].innerHTML = doc.data().Tiempo;
                         break;
                     case 2:
                         Nombre_2[0].innerHTML = doc.data().Nombre; Nombre_2[1].innerHTML = doc.data().Nombre;
@@ -127,7 +132,8 @@ function showData(a)
                         Vend_2[0].innerHTML = doc.data().Vendidos; Vend_2[1].innerHTML = doc.data().Vendidos;
                         Precio_2[0].innerHTML = doc.data().Precio; Precio_2[1].innerHTML = doc.data().Precio;
                         Prov_2[0].innerHTML = doc.data().Proveedor; Prov_2[1].innerHTML = doc.data().Proveedor;
-                        //Ingresos_2[0].innerHTML = doc.data().Ingresos; Ingresos_2[1].innerHTML = doc.data().Ingresos;
+                        Ingresos_2[0].innerHTML = doc.data().Ingresos; Ingresos_2[1].innerHTML = doc.data().Ingresos;
+                        Tiempo_2[0].innerHTML = doc.data().Tiempo; Tiempo_2[1].innerHTML = doc.data().Tiempo;
                         break;
                     case 3:
                         Nombre_3[0].innerHTML = doc.data().Nombre; Nombre_3[1].innerHTML = doc.data().Nombre;
@@ -135,7 +141,8 @@ function showData(a)
                         Vend_3[0].innerHTML = doc.data().Vendidos; Vend_3[1].innerHTML = doc.data().Vendidos;
                         Precio_3[0].innerHTML = doc.data().Precio; Precio_3[1].innerHTML = doc.data().Precio;
                         Prov_3[0].innerHTML = doc.data().Proveedor; Prov_3[1].innerHTML = doc.data().Proveedor;
-                        //Ingresos_3[0].innerHTML = doc.data().Ingresos; Ingresos_3[1].innerHTML = doc.data().Ingresos;
+                        Ingresos_3[0].innerHTML = doc.data().Ingresos; Ingresos_3[1].innerHTML = doc.data().Ingresos;
+                        Tiempo_3[0].innerHTML = doc.data().Tiempo; Tiempo_3[1].innerHTML = doc.data().Tiempo;
                         break;
                     case 4:
                         Nombre_4[0].innerHTML = doc.data().Nombre; Nombre_4[1].innerHTML = doc.data().Nombre;
@@ -143,7 +150,8 @@ function showData(a)
                         Vend_4[0].innerHTML = doc.data().Vendidos; Vend_4[1].innerHTML = doc.data().Vendidos;
                         Precio_4[0].innerHTML = doc.data().Precio; Precio_4[1].innerHTML = doc.data().Precio;
                         Prov_4[0].innerHTML = doc.data().Proveedor; Prov_4[1].innerHTML = doc.data().Proveedor;
-                        //Ingresos_4[0].innerHTML = doc.data().Ingresos; Ingresos_4[1].innerHTML = doc.data().Ingresos;
+                        Ingresos_4[0].innerHTML = doc.data().Ingresos; Ingresos_4[1].innerHTML = doc.data().Ingresos;
+                        Tiempo_4[0].innerHTML = doc.data().Tiempo; Tiempo_4[1].innerHTML = doc.data().Tiempo;
                         break;
                     case 5:
                         Nombre_5[0].innerHTML = doc.data().Nombre; Nombre_5[1].innerHTML = doc.data().Nombre;
@@ -151,7 +159,8 @@ function showData(a)
                         Vend_5[0].innerHTML = doc.data().Vendidos; Vend_5[1].innerHTML = doc.data().Vendidos;
                         Precio_5[0].innerHTML = doc.data().Precio; Precio_5[1].innerHTML = doc.data().Precio;
                         Prov_5[0].innerHTML = doc.data().Proveedor; Prov_5[1].innerHTML = doc.data().Proveedor;
-                        //Ingresos_5[0].innerHTML = doc.data().Ingresos; Ingresos_5[1].innerHTML = doc.data().Ingresos;
+                        Ingresos_5[0].innerHTML = doc.data().Ingresos; Ingresos_5[1].innerHTML = doc.data().Ingresos;
+                        Tiempo_5[0].innerHTML = doc.data().Tiempo; Tiempo_5[1].innerHTML = doc.data().Tiempo;
                         break;
                 }
                 i = i + 1;
@@ -276,7 +285,6 @@ function modifyData(b,c)
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
-            calcularVentas();
         })
         .catch(function(error) {
             console.error("Error writing document: ", error);
@@ -300,7 +308,7 @@ function modifyData(b,c)
             db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
                 Disponibles: firebase.firestore.FieldValue.increment(-1),
                 Vendidos: firebase.firestore.FieldValue.increment(1),
-                //Ingresos: firebase.firestore.FieldValue.increment(document.getElementsByClassName(idcell)[0].textContent),
+                Ingresos: firebase.firestore.FieldValue.increment(parseInt(document.getElementsByClassName(idcell)[0].textContent)),
             })
             .then(function() {
                 console.log("Venta hecha");
@@ -332,8 +340,8 @@ function modifyData(b,c)
                         document.getElementsByClassName(classname2)[0].innerHTML = doc.data().Vendidos;
                         document.getElementsByClassName(classname)[1].innerHTML = doc.data().Disponibles;
                         document.getElementsByClassName(classname2)[1].innerHTML = doc.data().Vendidos;
-                        //document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
-                        //document.getElementsByClassName(classIngresos)[1].innerHTML = doc.data().Ingresos;
+                        document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
+                        document.getElementsByClassName(classIngresos)[1].innerHTML = doc.data().Ingresos;
                     } else {
                         console.log("No such document!");
                     }
@@ -351,12 +359,11 @@ function modifyData(b,c)
 
     if(c == 3)
     {
+        closeErrorDiv();
         let classname = "Precio-" + b.toString()
         document.getElementById("precioInput").value = document.getElementsByClassName(classname)[0].textContent;
         document.getElementById("inputDiv").style.display = "block";
         precioActual = b;
-
-        closeErrorDiv()
     }
 
     if(c == 4)
@@ -386,7 +393,6 @@ function modifyData(b,c)
                 }).catch(function(error) {
                     console.log("Error getting document:", error);
                 });
-                calcularVentas();
             })
             .catch(function(error) {
                 console.error("Error writing document: ", error);
@@ -411,7 +417,7 @@ function modifyData(b,c)
             db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
                 Disponibles: firebase.firestore.FieldValue.increment(1),
                 Vendidos: firebase.firestore.FieldValue.increment(-1),
-                //Ingresos: firebase.firestore.FieldValue.increment(-1 * parseInt(document.getElementsByClassName(idcell)[0].textContent)),
+                Ingresos: firebase.firestore.FieldValue.increment(-1 * parseInt(document.getElementsByClassName(idcell)[0].textContent)),
             })
             .then(function() {
                 console.log("Venta devuelta");
@@ -443,8 +449,8 @@ function modifyData(b,c)
                         document.getElementsByClassName(classname1)[1].innerHTML = doc.data().Disponibles;
                         document.getElementsByClassName(classname)[0].innerHTML = doc.data().Vendidos;
                         document.getElementsByClassName(classname)[1].innerHTML = doc.data().Vendidos;
-                        //document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
-                        //document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
+                        document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
+                        document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
                     } else {
                         console.log("No such document!");
                     }
@@ -458,7 +464,6 @@ function modifyData(b,c)
             });           
         }
     }
-    calcularVentas();
 }
 
 function changePrice(event)
@@ -467,8 +472,9 @@ function changePrice(event)
     {
         if(document.getElementById("precioInput").value <= 0 || document.getElementById("precioInput").value == "")
         {
-            document.getElementById("errorDivMessage").innerHTML = "El precio no puede ser nada ni menor o igual a 0";
+            document.getElementById("errorDivMessage").innerHTML = "El precio no puede ser nada, ni menor o igual a 0";
             openErrorDiv();
+            closeInputDiv();
         }
         else
         {
