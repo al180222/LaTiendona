@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function goToIndex() {
-    window.location.href = "index.html";
+    window.location.href = "http://www.latiendona.tk/index.html";
 }
 
 function tryLogin(event){
