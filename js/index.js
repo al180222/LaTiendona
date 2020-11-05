@@ -13,3 +13,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         window.location.href = "tablas.html";
     }
 });
+
+function goToIndex() {
+    window.location.href = "index.html";
+}
