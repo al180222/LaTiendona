@@ -1,3 +1,3 @@
 Options -Indexes
 ErrorDocument 404 /Error404.html
-ErrorDocument 404 /Error403.html
+ErrorDocument 403 /Error403.html
