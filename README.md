@@ -35,7 +35,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 * [JAVASCRIPT](https://developer.mozilla.org/es/docs/Web/JavaScript) - Lenguaje de programación interpretado
 * [Firebase](https://firebase.google.com/docs?hl=es-419) - Usado para back-end en la bases de datos no relacional
 * [Google Cloud](https://cloud.google.com/docs) - Usado para generar una instancia de una máquina virtual 
-* [Linux Ubuntu](https://ubuntu.com/) - Usado para costruir el servidor web en Apache
+* [Linux Ubuntu](https://ubuntu.com/) - Usado para construir el servidor web en Apache
 
 ## Autores ✒️
 
