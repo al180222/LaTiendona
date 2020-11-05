@@ -12,7 +12,7 @@ _Tener acceso a internet en todo momento._
 
 ### Instalación 🔧
 
-_Si se quiere descargar el proyecto para aportaciones o para realizar pruebas hacer los siguientes pasos._
+_Si se quiere descargar el proyecto para aportaciones o para realizar pruebas, hacer los siguientes pasos._
 
 _Clonar el repositorio en Git Bash._
 
