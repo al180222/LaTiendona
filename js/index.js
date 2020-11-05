@@ -17,3 +17,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 function goToIndex() {
     window.location.href = "index.html";
 }
+
+function tryLogin(event){
+    if(event.keyCode == 13){
+        logIn();
+    }
+}
