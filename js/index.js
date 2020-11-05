@@ -23,3 +23,7 @@ function tryLogin(event){
         logIn();
     }
 }
+
+function loadLogin(){
+    window.location.href = "login.html";
+}
