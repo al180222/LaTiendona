@@ -304,55 +304,66 @@ function modifyData(b,c)
         else 
         {
             let idcell = "Precio-" + b.toString();
+            let docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);//obtener el documento
+            docRef.get().then(function(doc) { //funcion para leer datos
+                if (doc.exists) {
+                    let ObtenerPrecio =  (doc.data().Precio);//obtener el precio
+                    db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
+                        Disponibles: firebase.firestore.FieldValue.increment(-1),
+                        Vendidos: firebase.firestore.FieldValue.increment(1),
+                        Ingresos: firebase.firestore.FieldValue.increment(parseInt(ObtenerPrecio)),
+                    })
+                    .then(function() {
+                        console.log("Venta hecha");
+                    })
+                    .catch(function(error) {
+                        console.error("Error writing document: ", error);
+                    }); 
 
-            db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
-                Disponibles: firebase.firestore.FieldValue.increment(-1),
-                Vendidos: firebase.firestore.FieldValue.increment(1),
-                Ingresos: firebase.firestore.FieldValue.increment(parseInt(document.getElementsByClassName(idcell)[0].textContent)),
-            })
-            .then(function() {
-                console.log("Venta hecha");
-            })
-            .catch(function(error) {
-                console.error("Error writing document: ", error);
-            });
+                    db.collection("Ventas").doc(categoriaActual).update({
+                        Total: firebase.firestore.FieldValue.increment(parseInt(ObtenerPrecio)),
+                    })
+                    .then(function() {
+                        console.log("Venta registrada");
+                    })
+                    .catch(function(error) {
+                        console.error("Error writing document: ", error);
+                    });
+                    db.collection("Ventas").doc("TotalVentas").update({
+                        Total: firebase.firestore.FieldValue.increment(parseInt(ObtenerPrecio)),
+                    })
+                    .then(function() {
+                        let classname2 = "Vend-" + b.toString();
+                        var docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);
+            
+                        docRef.get().then(function(doc) {
+                            if (doc.exists) {
+                                document.getElementsByClassName(classname)[0].innerHTML = doc.data().Disponibles;
+                                document.getElementsByClassName(classname2)[0].innerHTML = doc.data().Vendidos;
+                                document.getElementsByClassName(classname)[1].innerHTML = doc.data().Disponibles;
+                                document.getElementsByClassName(classname2)[1].innerHTML = doc.data().Vendidos;
+                                document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
+                                document.getElementsByClassName(classIngresos)[1].innerHTML = doc.data().Ingresos;
+                            } else {
+                                console.log("No such document!");
+                            }
+                        }).catch(function(error) {
+                            console.log("Error getting document:", error);
+                        });
+                        calcularVentas();
+                    })
+                    .catch(function(error) {
+                        console.error("Error writing document: ", error);
+                    });
 
-            db.collection("Ventas").doc(categoriaActual).update({
-                Total: firebase.firestore.FieldValue.increment(parseInt(document.getElementsByClassName(idcell)[0].textContent)),
-            })
-            .then(function() {
-                console.log("Venta registrada");
-            })
-            .catch(function(error) {
-                console.error("Error writing document: ", error);
-            });
+                } else {
+                    console.log("No se ha encontrado el documento!");
+                }
+            }
+            );
+            
+         
 
-            db.collection("Ventas").doc("TotalVentas").update({
-                Total: firebase.firestore.FieldValue.increment(parseInt(document.getElementsByClassName(idcell)[0].textContent)),
-            })
-            .then(function() {
-                let classname2 = "Vend-" + b.toString();
-                var docRef = db.collection(categoriaActual).doc(idProductos[xValue][b-1]);
-    
-                docRef.get().then(function(doc) {
-                    if (doc.exists) {
-                        document.getElementsByClassName(classname)[0].innerHTML = doc.data().Disponibles;
-                        document.getElementsByClassName(classname2)[0].innerHTML = doc.data().Vendidos;
-                        document.getElementsByClassName(classname)[1].innerHTML = doc.data().Disponibles;
-                        document.getElementsByClassName(classname2)[1].innerHTML = doc.data().Vendidos;
-                        document.getElementsByClassName(classIngresos)[0].innerHTML = doc.data().Ingresos;
-                        document.getElementsByClassName(classIngresos)[1].innerHTML = doc.data().Ingresos;
-                    } else {
-                        console.log("No such document!");
-                    }
-                }).catch(function(error) {
-                    console.log("Error getting document:", error);
-                });
-                calcularVentas();
-            })
-            .catch(function(error) {
-                console.error("Error writing document: ", error);
-            });
         }
         calcularVentas();
     }
@@ -413,8 +424,8 @@ function modifyData(b,c)
         else 
         {
             let idcell = "Precio-" + b.toString();
-
             db.collection(categoriaActual).doc(idProductos[xValue][b-1]).update({
+                
                 Disponibles: firebase.firestore.FieldValue.increment(1),
                 Vendidos: firebase.firestore.FieldValue.increment(-1),
                 Ingresos: firebase.firestore.FieldValue.increment(-1 * parseInt(document.getElementsByClassName(idcell)[0].textContent)),
@@ -491,6 +502,7 @@ function changePrice(event)
         }
     }
 }
+
 
 function closeInputDiv()
 {
