@@ -41,7 +41,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 _Integrantes en la elaboración de proyecto_
 
-* **André Marín Alonso** - *Desarrollo Back-End* - [al180222](https://github.com/al180222)
+* **André Marín Alonso** - *Desarrollo Back-End* - [al180222](https://github.com/andre7070)
 * **Francisco Antonio Enríquez** - *Desarrollo Front-End* - [FranciscoEnriquez](https://github.com/FranciscoEnriquez)
 * **Norma Ismeraí Antonio** - *Desarrollo Front-End* - [192850](https://github.com/192850)
 * **Cecilia Mendoza Moreno** - *Desarrollo Back-End* - [Cecilia-Mendoza-Moreno](https://github.com/Cecilia-Mendoza-Moreno)
